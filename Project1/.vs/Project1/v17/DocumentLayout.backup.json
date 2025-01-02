@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\user\\OneDrive\\\u684C\u9762\\PROJECT\\Project1\\",
+  "WorkspaceRootPath": "C:\\Users\\USER\\Desktop\\PROJECT\\Project1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DC7D6E3C-E9BA-459A-AE80-DE1F93E0F3E0}|Project1\\Project1.vcxproj|C:\\Users\\user\\OneDrive\\\u684C\u9762\\PROJECT\\Project1\\Project1\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{DC7D6E3C-E9BA-459A-AE80-DE1F93E0F3E0}|Project1\\Project1.vcxproj|C:\\Users\\USER\\Desktop\\PROJECT\\Project1\\Project1\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{DC7D6E3C-E9BA-459A-AE80-DE1F93E0F3E0}|Project1\\Project1.vcxproj|solutionrelative:Project1\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -20,11 +20,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "main.c",
-              "DocumentMoniker": "C:\\Users\\user\\OneDrive\\\u684C\u9762\\PROJECT\\Project1\\Project1\\main.c",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\PROJECT\\Project1\\Project1\\main.c",
               "RelativeDocumentMoniker": "Project1\\main.c",
-              "ToolTip": "C:\\Users\\user\\OneDrive\\\u684C\u9762\\PROJECT\\Project1\\Project1\\main.c",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\PROJECT\\Project1\\Project1\\main.c",
               "RelativeToolTip": "Project1\\main.c",
-              "ViewState": "AgIAAL0AAAAAAAAAAAAswMsAAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-12-30T10:19:49.449Z",
               "EditorCaption": ""
