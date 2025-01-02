@@ -223,4 +223,130 @@ bool isLoggedIn() {
     return (currentUserIndex != -1);
 }
 
+void loadUsers() {
+    FILE* fp = fopen(USERS_FILE, "r");
+    if (!fp) {
 
+        printf("??? %s???????????\n", USERS_FILE);
+        userCount = 0;
+        return;
+    }
+    userCount = 0;
+    while (!feof(fp)) {
+        char username[20];
+        char password[20];
+        int active;
+        int ret = fscanf(fp, "%s %s %d", username, password, &active);
+        if (ret == 3 && userCount < MAX_USERS) {
+            strcpy(users[userCount].username, username);
+            strcpy(users[userCount].password, password);
+            users[userCount].isActive = (active == 1);
+            userCount++;
+        }
+    }
+    fclose(fp);
+    printf("??? %d ??????\n", userCount);
+}
+users.txt
+void saveUsers() {
+    FILE* fp = fopen(USERS_FILE, "w");
+    if (!fp) {
+        printf("???? %s ????!\n", USERS_FILE);
+        return;
+    }
+    for (int i = 0; i < userCount; i++) {
+        if (users[i].isActive) {
+            int activeInt = users[i].isActive ? 1 : 0;
+            fprintf(fp, "%s %s %d\n",
+                users[i].username,
+                users[i].password,
+                activeInt);
+        }
+    }
+    fclose(fp);
+}
+
+
+void exitSystem() {
+    saveUsers();
+    printf("??????????\n");
+    exit(0);
+}
+void openAccount() {
+    if (accountCount >= MAX_ACCOUNTS) {
+        printf("??????????????\n");
+        return;
+    }
+    int inputId;
+    printf("???????????(?: 1000): ");
+    scanf("%d", &inputId);
+
+
+    for (int i = 0; i < accountCount; i++) {
+        if (accounts[i].isActive && accounts[i].accountId == inputId) {
+            printf("???????????????\n");
+            return;
+        }
+    }
+
+    accounts[accountCount].accountId = inputId;
+    strcpy(accounts[accountCount].ownerUsername, users[currentUserIndex].username);
+    accounts[accountCount].balance = 0.0;
+    accounts[accountCount].isActive = true;
+
+    printf("????! ????: %d, ???: %s\n",
+        accounts[accountCount].accountId,
+        accounts[accountCount].ownerUsername);
+    accountCount++;
+}
+
+
+void closeAccount() {
+    int accountId;
+    printf("???????????: ");
+    scanf("%d", &accountId);
+
+    int idx = findAccountIndexById(accountId);
+    if (idx == -1) {
+        printf("?????!\n");
+        return;
+    }
+
+    if (strcmp(accounts[idx].ownerUsername, users[currentUserIndex].username) != 0) {
+        printf("??????????!\n");
+        return;
+    }
+
+    if (!accounts[idx].isActive) {
+        printf("????????????\n");
+        return;
+    }
+
+    accounts[idx].balance = 0;
+    accounts[idx].isActive = false;
+    printf("?? %d ??????\n", accountId);
+}
+
+
+void viewBalance() {
+    int accountId;
+    printf("???????????: ");
+    scanf("%d", &accountId);
+
+    int idx = findAccountIndexById(accountId);
+    if (idx == -1) {
+        printf("?????!\n");
+        return;
+    }
+    if (!accounts[idx].isActive) {
+        printf("?????????!\n");
+        return;
+    }
+
+    if (strcmp(accounts[idx].ownerUsername, users[currentUserIndex].username) != 0) {
+        printf("???????????!\n");
+        return;
+    }
+
+    printf("?? %d ??: %.2f\n", accountId, accounts[idx].balance);
+}
